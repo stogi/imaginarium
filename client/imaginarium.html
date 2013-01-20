@@ -1,40 +1,38 @@
 <head>
-	<meta charset="utf-8">
-    <title>Imaginarium</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+  <title>Imaginarium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="">Imaginarium</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active">
-                <a href="#">Asortyment</a>
-              </li>
-              <li>
-                <a href="#">Zamówienia</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="">Imaginarium</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active">
+            <a href="products">Asortyment</a>
+          </li>
+          <li>
+            <a href="orders">Zamówienia</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
 
 <!-- Subhead
 ================================================== -->
@@ -46,10 +44,8 @@
 </header>
 
 <div class="container">
-  {{> products}}
+  {{renderPage}}
 </div>
-
-
 
 <!-- Footer
 ================================================== -->
@@ -58,135 +54,139 @@
     Imaginarium - kartki ręcznie robione &copy; 2013
   </div>
 </footer>
-
 </body>
 
+
+<template name="orders">
+  Zamówienia
+</template>
+
 <template name="products">
-<!-- Docs nav
-================================================== -->
-<div class="row">
-  <div class="span3 bs-docs-sidebar">
-    <label>Typ</label>
-    <select name="type">
-      <option>Kartki</option>
-      <option>Pudełka</option>
-      <option>Zaproszenia</option>
-      <option>Winietki</option>
-      <option>Menu</option>
-      <option>Zawieszki</option>
-      <option>Podziękowania</option>
-      <option>Zakładki</option>
-    </select>
+  <!-- Docs nav
+  ================================================== -->
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <label>Typ</label>
+      <select name="type">
+        <option>Kartki</option>
+        <option>Pudełka</option>
+        <option>Zaproszenia</option>
+        <option>Winietki</option>
+        <option>Menu</option>
+        <option>Zawieszki</option>
+        <option>Podziękowania</option>
+        <option>Zakładki</option>
+      </select>
 
-    <label>Okazja</label>
-    <select name="occasion">
-      <option>Urodziny</option>
-      <option>Imieniny</option>
-      <option>Narodziny</option>
-      <option>Ślub</option>
-      <option>Życzenia</option>
-      <option>Walentynki</option>
-      <option>Boże Narodzenie</option>
-      <option>Wielkanoc</option>
-      <option>Gratulacje</option>
-    </select>
+      <label>Okazja</label>
+      <select name="occasion">
+        <option>Urodziny</option>
+        <option>Imieniny</option>
+        <option>Narodziny</option>
+        <option>Ślub</option>
+        <option>Życzenia</option>
+        <option>Walentynki</option>
+        <option>Boże Narodzenie</option>
+        <option>Wielkanoc</option>
+        <option>Gratulacje</option>
+      </select>
+    </div>
+    
+    <div class="span9">
+      <!-- Download
+      ================================================== -->
+      <ul class="unstyled">
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <h3>Walentynka 1</h3>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
+            </div>
+            <div class="span8">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  
-  <div class="span9">
-    <!-- Download
-    ================================================== -->
-    <ul class="unstyled">
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <h3>Walentynka 1</h3>
-
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="http://sphotos-a.ak.fbcdn.net/hphotos-ak-ash3/19216_539423702742410_1501435545_n.jpg" class="img-polaroid">
-          </div>
-          <div class="span8">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
 </template>
