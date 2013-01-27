@@ -10,3 +10,7 @@ bootstrap
 less
 coffeescript
 router
+accounts-ui
+accounts-base
+accounts-password
+email
