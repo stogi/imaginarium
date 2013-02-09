@@ -15,15 +15,26 @@ Accounts.config
 Template.navbar.isAdmin = ->
 	Meteor.user()?.profile?.isAdmin is true
 
+clearMessage = (template) ->
+	alertEl = $(template.find '.alert')
+	alertEl.removeClass 'alert-error'
+	alertEl.removeClass 'alert-success'
+	alertEl.hide()
+
+showMessage = (type, message, template) ->
+	alertEl = $(template.find '.alert')
+	alertEl.removeClass 'alert-error'
+	alertEl.removeClass 'alert-success'
+	alertEl.addClass "alert-#{type}"
+	alertEl.find('.reason').html message
+	alertEl.show()
+
 Template.registerUser.events
 	'click button': (event, template) ->
 		email = template.find('#email').value.trim() 
 		name = template.find('#name').value.trim()
 
-		alertEl = $(template.find '.alert')
-		alertEl.removeClass 'alert-error'
-		alertEl.removeClass 'alert-success'
-		alertEl.hide()
+		clearMessage template
 
 		emailEl = $(template.find '.email')
 		emailEl.removeClass 'error'
@@ -32,16 +43,12 @@ Template.registerUser.events
 
 		if email is ''
 			emailEl.addClass 'error'
-			alertEl.addClass 'alert-error'
-			alertEl.find('.reason').html 'Adres email jest obowiazkowy.'
-			alertEl.show()
+			showMessage 'error', 'Adres email jest obowiazkowy.', template
 			return
 
 		if name is ''
 			nameEl.addClass 'error'
-			alertEl.addClass 'alert-error'
-			alertEl.find('.reason').html 'Imię i nazwizko są obowiazkowe.'
-			alertEl.show()
+			showMessage 'error', 'Imię i nazwisko są obowiazkowe.', template
 			return 
 
 		data = 
@@ -50,18 +57,13 @@ Template.registerUser.events
 				name: name
 			
 		Meteor.call 'registerUser', data, (error, userId) ->
-			alertEl.removeClass 'alert-error'
-			alertEl.removeClass 'alert-success'
+			clearMessage template
 
 			if error
-				alertEl.addClass 'alert-error'
-				alertEl.find('.reason').html error.reason
-				alertEl.show()
+				showMessage 'error', error.reason, template
 
 			else
-				alertEl.addClass 'alert-success'
-				alertEl.find('.reason').html 'Użytkownik został zarejestrowany. Informacja o rejestracji została przesłana na podany email.'
-				alertEl.show()
+				showMessage 'success', 'Użytkownik został zarejestrowany. Informacja o rejestracji została przesłana na podany email.', template
 
 				template.find('#email').value = ''
 				template.find('#name').value = ''
