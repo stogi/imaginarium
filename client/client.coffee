@@ -12,6 +12,8 @@ Meteor.Router.add
 Accounts.config
 	forbidClientAccountCreation: true
 
+Meteor.subscribe 'products'
+
 isAdmin = ->
 	Meteor.user()?.profile?.isAdmin is true
 
@@ -32,6 +34,9 @@ showMessage = (type, message, template) ->
 Template.navbar.isAdmin = isAdmin
 
 Template.products.isAdmin = isAdmin
+
+Template.products.products = ->
+	Products.find {}
 
 Template.registerUser.events
 	'click button': (event, template) ->
@@ -60,7 +65,7 @@ Template.registerUser.events
 			profile:
 				name: name
 			
-		Meteor.call 'registerUser', data, (error, userId) ->
+		Meteor.call 'registerUser', data, (error) ->
 			clearMessage template
 
 			if error
@@ -71,3 +76,27 @@ Template.registerUser.events
 
 				template.find('#email').value = ''
 				template.find('#name').value = ''
+
+Template.addProduct.events
+	'click button': (event, template) ->
+		product =
+			name: template.find('#name').value.trim()
+			url: template.find('#url').value.trim()
+			description: template.find('#description').value.trim()
+			type: template.find('#type').value.trim()
+			occasion: template.find('#occasion').value.trim()
+			amount: parseInt template.find('#amount').value.trim()
+			price: parseInt template.find('#price').value.trim()
+
+		console.log product
+
+		Meteor.call 'addProduct', product, (error) ->
+			if error
+				console.log error
+
+			else
+				showMessage 'success', 'Artykuł został pomyślnie dodany.', template
+
+
+
+
