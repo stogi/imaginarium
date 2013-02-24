@@ -113,40 +113,115 @@
 		</div>
 		
 		<div class="form-actions">
-			<button class="btn btn btn-primary">Dodaj</button>
+			<button class="btn btn-primary">Dodaj</button>
 		</div>
 	</fieldset>
 </template>
 
+<template name="addProduct">
+	<fieldset class="form-horizontal">
+		<legend>Dodaj Produkt</legend>
+
+		<div class="alert" style="display: none">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<span class="reason"></span>
+		</div>
+
+		<div class="name control-group">
+			<label class="control-label" for="email">Nazwa</label>
+			<div class="controls">
+				<input class="span6" type="text" id="name" placeholder="Nazwa">
+			</div>
+		</div>
+
+		<div class="url control-group">
+			<label class="control-label" for="url">URL</label>
+			<div class="controls">
+				<input class="span6" type="text" id="url" placeholder="URL">
+			</div>
+		</div>
+
+		<div class="description control-group">
+			<label class="control-label" for="description">Opis</label>
+			<div class="controls">
+				<textarea class="span6" type="text" id="description" placeholder="Opis"></textarea>
+			</div>
+		</div>
+		
+		<div class="type control-group">
+			<label class="control-label" for="type">Typ</label>
+			<div class="controls">
+				{{> typeSelectBox}}
+			</div>
+		</div>
+
+		<div class="occasion control-group">
+			<label class="control-label" for="occasion">Okazja</label>
+			<div class="controls">
+				{{> occasionSelectBox}}
+			</div>
+		</div>
+
+		<div class="amount control-group">
+			<label class="control-label" for="amount">Ilość</label>
+			<div class="controls">
+				<input class="span1" type="number" id="amount" value="0">
+			</div>
+		</div>
+
+		<div class="form-actions">
+			<button class="btn btn-primary">Dodaj</button>
+		</div>
+	</fieldset>
+</template>
+
+<template name="typeSelectBox">
+	<select id="type">
+		<option>Kartki</option>
+		<option>Menu</option>
+		<option>Podziękowania</option>
+		<option>Pudełka</option>
+		<option>Winietki</option>
+		<option>Zakładki</option>
+		<option>Zaproszenia</option>
+		<option>Zawieszki</option>
+	</select>
+</template>
+
+<template name="occasionSelectBox">
+	<select id="occasion">
+		<option>Boże Narodzenie</option>
+		<option>Gratulacje</option>
+		<option>Imieniny</option>
+		<option>Narodziny</option>
+		<option>Ślub</option>
+		<option>Urodziny</option>
+		<option>Walentynki</option>
+		<option>Wielkanoc</option>
+		<option>Życzenia</option>
+	</select>
+</template>
+
 <template name="products">
+	{{#if isAdmin}}
+		<div class="row">
+			<div class="span12">
+
+				{{> addProduct}}
+
+			</div>
+		</div>
+	{{/if}}
+
 	<!-- Docs nav
 	================================================== -->
 	<div class="row">
 		<div class="span3 bs-docs-sidebar">
 			<label>Typ</label>
-			<select name="type">
-				<option>Kartki</option>
-				<option>Pudełka</option>
-				<option>Zaproszenia</option>
-				<option>Winietki</option>
-				<option>Menu</option>
-				<option>Zawieszki</option>
-				<option>Podziękowania</option>
-				<option>Zakładki</option>
-			</select>
+			{{> typeSelectBox}}
 
 			<label>Okazja</label>
-			<select name="occasion">
-				<option>Urodziny</option>
-				<option>Imieniny</option>
-				<option>Narodziny</option>
-				<option>Ślub</option>
-				<option>Życzenia</option>
-				<option>Walentynki</option>
-				<option>Boże Narodzenie</option>
-				<option>Wielkanoc</option>
-				<option>Gratulacje</option>
-			</select>
+			{{> occasionSelectBox}}
 		</div>
 		
 		<div class="span9">

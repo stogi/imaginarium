@@ -12,7 +12,7 @@ Meteor.Router.add
 Accounts.config
 	forbidClientAccountCreation: true
 
-Template.navbar.isAdmin = ->
+isAdmin = ->
 	Meteor.user()?.profile?.isAdmin is true
 
 clearMessage = (template) ->
@@ -28,6 +28,10 @@ showMessage = (type, message, template) ->
 	alertEl.addClass "alert-#{type}"
 	alertEl.find('.reason').html message
 	alertEl.show()
+
+Template.navbar.isAdmin = isAdmin
+
+Template.products.isAdmin = isAdmin
 
 Template.registerUser.events
 	'click button': (event, template) ->
